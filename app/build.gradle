@@ -1,0 +1,96 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.ltgt.gradle:gradle-errorprone-plugin:0.0.13"
+    }
+}
+apply plugin: "net.ltgt.errorprone"
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion rootProject.ext.buildToolsVersionName
+    defaultConfig {
+        applicationId 'net.fumfy.examples.bluetoothle'
+        minSdkVersion 18
+        targetSdkVersion rootProject.ext.compileSdkVersionCode
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled true
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    productFlavors {
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Android Support
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support:design:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support:support-core-ui:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support:support-v4:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersionName"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintLayoutVersionCode"
+
+    // Butterknife
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersionCode"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersionCode"
+
+    // RxAndroidBle
+    implementation "com.polidea.rxandroidble:rxandroidble:$rootProject.ext.rxbleVersionCode"
+
+    // RxJava
+    implementation "io.reactivex:rxjava:$rootProject.ext.rxJavaVersionCode"
+    implementation "io.reactivex:rxandroid:$rootProject.ext.rxAndroidVersionCode"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$rootProject.ext.daggerVersionCode"
+    //noinspection GradleDependency
+    implementation "com.google.dagger:dagger-android:$rootProject.ext.daggerVersionCode"
+    //noinspection GradleDependency
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.daggerVersionCode"
+    annotationProcessor "com.google.dagger:dagger-android-processor:$rootProject.ext.daggerVersionCode"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersionCode"
+    api 'javax.annotation:jsr250-api:1.0'
+
+    // Apache Commons
+    implementation "org.apache.commons:commons-lang3:$rootProject.ext.commonsLang3VersionCode"
+    // Timber
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timberVersionCode"
+
+    // Development
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakcanaryVersionCode"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.ext.leakcanaryVersionCode"
+
+    // Testing
+    testImplementation "junit:junit:$rootProject.ext.junitVersionCode"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.testRunnerVersionCode"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.ext.expressoVersionCode"
+}

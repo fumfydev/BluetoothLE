@@ -1,0 +1,18 @@
+ext {
+    supportLibraryVersionName = '27.0.2'
+    compileSdkVersionCode = 27
+    buildToolsVersionName = '27.0.2'
+    jsr205VersionCode = '1.0'
+    constraintLayoutVersionCode = '1.0.2'
+    butterknifeVersionCode = '8.8.1'
+    daggerVersionCode = '2.13'
+    rxbleVersionCode = '1.4.3'
+    rxJavaVersionCode = '1.3.4'
+    rxAndroidVersionCode = '1.2.1'
+    timberVersionCode = '4.6.0'
+    leakcanaryVersionCode = '1.5.4'
+    junitVersionCode = '4.12'
+    testRunnerVersionCode= '1.0.1'
+    expressoVersionCode = '3.0.1'
+    commonsLang3VersionCode = '3.7'
+}
