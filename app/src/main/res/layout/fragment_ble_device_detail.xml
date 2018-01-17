@@ -8,19 +8,19 @@
     <!-- TODO: Implement fragment layout -->
     <TextView
         android:id="@+id/detailTextView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        tools:text="@string/not_implemented_for_for_demo_string_app_name"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/not_implemented_for_for_demo_string_app_name"/>
 
 </android.support.constraint.ConstraintLayout>

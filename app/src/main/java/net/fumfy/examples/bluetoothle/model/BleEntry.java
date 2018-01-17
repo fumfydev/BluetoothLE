@@ -215,7 +215,8 @@ public class BleEntry implements Parcelable {
 		source.readByteArray(rawBytes);
 	}
 
-	static final Parcelable.Creator<BleEntry> CREATOR = new Parcelable.Creator<BleEntry>() {
+	@SuppressWarnings("WeakerAccess")
+	public static final Parcelable.Creator<BleEntry> CREATOR = new Parcelable.Creator<BleEntry>() {
 		@Override
 		public BleEntry createFromParcel(Parcel source) {
 			return new BleEntry(source);
