@@ -61,13 +61,6 @@ public class BleScanDetailActivity extends BaseActivity
 	}
 
 	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		fragment = null;
-		presenter = null;
-	}
-
-	@Override
 	public ActionBar getActivityActionBar() {
 		return getSupportActionBar();
 	}

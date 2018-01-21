@@ -122,11 +122,6 @@ public class BleScanListFragment extends BaseMvpFragment<BleScanPresenter>
 	}
 
 	@Override
-	public void onDetach() {
-		super.onDetach();
-	}
-
-	@Override
 	public void onRefresh() {
 		presenter.onRefresh();
 	}

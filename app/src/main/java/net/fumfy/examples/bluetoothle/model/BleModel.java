@@ -16,8 +16,6 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import timber.log.Timber;
-
 
 /**
  * Project : BluetoothLE
@@ -54,12 +52,10 @@ public class BleModel implements Parcelable {
 	}
 
 	public int getScanTimerCount() {
-		Timber.d("in getScanTimerCount returning %d", scanTimerCount);
 		return scanTimerCount;
 	}
 
 	public void setScanTimerCount(int scanTimerCount) {
-		Timber.d("in setScanTimerCount(%d)", scanTimerCount);
 		this.scanTimerCount = scanTimerCount;
 	}
 
@@ -134,6 +130,9 @@ public class BleModel implements Parcelable {
 	@Override
 	public boolean equals(Object obj) {
 
+		if (obj == null){
+			return false;
+		}
 		if (this == obj) {
 			return true;
 		}
