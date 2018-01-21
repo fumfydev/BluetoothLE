@@ -51,18 +51,6 @@ public class BleScanMainActivity extends BaseActivity
         }
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        bleScanListFragment = null;
-        bleScanPresenter = null;
-    }
-
 	@Override
     public void onScanEntryClick(BleEntry bleEntry) {
         navigator.toDetailActivity(this, bleEntry);

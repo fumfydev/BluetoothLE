@@ -22,8 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import timber.log.Timber;
-
 
 /**
  * Project : BluetoothLE
@@ -176,7 +174,6 @@ public class BleEntry implements Parcelable {
 	}
 
 	private BleEntry(@NonNull Parcel source) {
-		Timber.d("in BleEntry(@NonNull Parcel source)");
 		name = source.readString();
 		macAddress = source.readString();
 		type = source.readString();
@@ -230,7 +227,6 @@ public class BleEntry implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		Timber.d("in writeToParcel()");
 		dest.writeString(name);
 		dest.writeString(macAddress);
 		dest.writeString(type);
@@ -270,7 +266,6 @@ public class BleEntry implements Parcelable {
 				}
 			}
 		} else {
-			// serviceData was null
 			dest.writeInt(0);
 		}
 		dest.writeInt(txPowerlevel);
@@ -290,6 +285,9 @@ public class BleEntry implements Parcelable {
 	@Override
 	public boolean equals(Object obj) {
 
+		if (obj == null) {
+			return false;
+		}
 		if (this == obj) {
 			return true;
 		}
